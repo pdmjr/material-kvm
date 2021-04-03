@@ -16,7 +16,7 @@ Para mais informações sobre o KVM: [site oficial](https://www.linux-kvm.org/pa
 grep -Eoc '(vmx|svm)' /proc/cpuinfo
 ```
 
-- Para verificar se o processador suporta a virtualização que o kvm necessita, é necessario instalar o "cpu-checker" e utilizar o comando "kvm-ok".
+- Verificando o suporte do processador à virtualização que o kvm necessita.
 
 ```
 sudo apt install cpu-checker
