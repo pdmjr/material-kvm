@@ -8,20 +8,47 @@ Toda a instalação e configuração apresentada neste material será no modo *h
 
 Para mais informações sobre o KVM: [site oficial](https://www.linux-kvm.org/page/Main_Page).
 
+Esse material foi elaborado com base em: [Tutorial KVM](https://github.com/ismaelviih/github/blob/master/Tutorial.md)
+
 ## Verificando a compatibilidade do processador com a virtualização
 
 - Verificando a quantidade de núcleos.
 
 ```
-grep -Eoc '(vmx|svm)' /proc/cpuinfo
+$ grep -Eoc '(vmx|svm)' /proc/cpuinfo
 ```
 
 - Verificando o suporte do processador à virtualização que o kvm necessita.
 
 ```
-sudo apt install cpu-checker
+$ sudo apt install -y cpu-checker
 ```
 
 ```
-kvm-ok
+$ kvm-ok
+```
+
+- Instalação dos componentes de software.
+
+```
+$ sudo apt install -y qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst virt-manager libguestfs-tools libosinfo-bin
+```
+
+- Verificando se a biblioteca libvirtd está em execução.
+
+```
+$ sudo systemctl is-active libvirtd
+```
+
+-  Recomenda-se a do seu usuário nos grupos "libvirt" e "kvm" para questões de gerenciamento.
+
+```
+$ sudo usermod -aG libvirt $USER
+$ sudo usermod -aG kvm $USER
+```
+
+- Verificando quais sistemas operacionais são suportados pelo KVM.
+
+```
+$ osinfo-query os
 ```
