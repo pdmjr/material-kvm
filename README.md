@@ -52,3 +52,26 @@ $ sudo usermod -aG kvm $USER
 ```
 $ osinfo-query os
 ```
+
+- Instalação de uma VM Debian a partir do arquivo .iso.
+
+```
+$ mkdir vm-debian
+$ cd vm-debian
+$ wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.9.0-amd64-netinst.iso
+```
+
+```
+$ sudo virt-install \
+	--name vm3 \
+	--os-type linux \
+	--os-variant generic \
+	--ram=1024 \
+	--vcpus=1  \
+	--virt-type kvm \
+	--disk path=/var/lib/libvirt/images/vm3.qcow2,format=qcow2,bus=virtio,size=5 \
+	--graphics none \
+	--location=/vagrant/testedebian/debian-10.9.0-amd64-netinst.iso \
+	--extra-args="console=tty0 console=ttyS0,115200" \
+	--check all=off
+```
