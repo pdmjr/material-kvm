@@ -63,13 +63,13 @@ $ wget https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-10.9.0-a
 
 ```
 $ sudo virt-install \
-	--name vm3 \
+	--name debian-vm1 \
 	--os-type linux \
 	--os-variant generic \
 	--ram=1024 \
 	--vcpus=1  \
 	--virt-type kvm \
-	--disk path=/var/lib/libvirt/images/vm3.qcow2,format=qcow2,bus=virtio,size=5 \
+	--disk path=/var/lib/libvirt/images/debian-vm1.qcow2,format=qcow2,bus=virtio,size=5 \
 	--graphics none \
 	--location=/vagrant/vm-debian/debian-10.9.0-amd64-netinst.iso \
 	--extra-args="console=tty0 console=ttyS0,115200" \
