@@ -71,7 +71,7 @@ $ sudo virt-install \
 	--virt-type kvm \
 	--disk path=/var/lib/libvirt/images/debian-vm1.qcow2,format=qcow2,bus=virtio,size=5 \
 	--graphics none \
-	--location=/vagrant/vm-debian/debian-10.9.0-amd64-netinst.iso \
+	--location=/home/administrador/vm-debian/debian-10.9.0-amd64-netinst.iso \
 	--extra-args="console=tty0 console=ttyS0,115200" \
 	--check all=off
 ```
